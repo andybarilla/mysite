@@ -1,18 +1,27 @@
 version: '2'
 services:
   nginx:
-    restart: always
+#    restart: always
     image: nginx:latest
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
     volumes_from:
-      - web:ro
+      - web_andybarilla:ro
+      - web_therhythmratz:ro
     depends_on:
-      - web 
-  web:
-    restart: always
-    build: ./app
+      - web_andybarilla
+      - web_therhythmratz
+  web_andybarilla:
+#    restart: always
+    build: ./andybarilla.com
     volumes:
-      - /srv/static
-      - ./app:/srv/app
-    working_dir: /srv/app
+      - /srv/andybarilla.com/static
+      - ./andybarilla.com:/srv/andybarilla.com/app
+    working_dir: /srv/andybarilla.com/app
+  web_therhythmratz:
+#    restart: always
+    build: ./therhythmratz.com
+    volumes:
+      - /srv/therhythmratz.com/static
+      - ./therhythmratz.com:/srv/therhythmratz.com/app
+    working_dir: /srv/therhythmratz.com/app

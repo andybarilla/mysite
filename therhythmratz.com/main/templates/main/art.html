@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<body>
+	<h1>The Rhythm Ratz Logos &amp; Artwork</h1>
+	<p>
+	Here's where you can download artwork for flyers and promotional materials for <a href="{% url 'index' %}">The Rhythm Ratz</a>, a psychobilly and rockabilly band from Colorado Springs, CO.
+	</p>
+
+	<h2>Click an image to download the full size version</h2>
+
+	{% for file in files %}
+		<div class="artdownload">
+			<a href="{% static file.path %}" download="{{ file.name }}"><img src="{% static file.path %}" width="400" /></a>
+		</div>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+	<link rel="stylesheet" type="text/css" href="{% static "main/rr.css" %}" />
+    <title>The Rhythm Ratz</title>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="description" content="The Rhythm Ratz are a psychobilly and rockabilly band from Colorado Springs, CO. That&#039;s Ratz with a Z not Rhythm Rats."/>
+    
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The Rhythm Ratz - Rockabilly &amp; Psychobilly from Colorado Springs" />
+    <meta property="og:description" content="The Rhythm Ratz are a psychobilly and rockabilly band from Colorado Springs, CO. That&#039;s Ratz with a Z not Rhythm Rats." />
+    <meta property="og:url" content="http://therhythmratz.com" />
+    <meta property="og:site_name" content="The Rhythm Ratz" />
+	<meta property="og:image" content="{% static "rr-banner-sewer.jpg" %}" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="The Rhythm Ratz are a psychobilly and rockabilly band from Colorado Springs, CO. That&#039;s Ratz with a Z not Rhythm Rats." />
+    <meta name="twitter:title" content="The Rhythm Ratz - Rockabilly &amp; Psychobilly from Colorado Springs" />
+    <meta name="twitter:site" content="@therhythmratz" />
+    
+	<link rel="icon" href="{% static "main/rr-badge-32.png" %}" sizes="32x32" />
+	<link rel="icon" href="{% static "main/rr-badge-192.png" %}" sizes="192x192" />
+
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+  <div class="banner"><a href="{% static "main/art/rr-banner1.png" %}"><img src="{% static "main/rr-banner.jpg" %}" width="800" height="297" alt="The Rhythm Ratz" /></a></div>
+
+  {% block content %}{% endblock %}
+
+  <hr />
+
+  <h6>Website design by <a href="http://andybarilla.com">Andy Barilla</a> | Hosting by <a href="https://m.do.co/c/969722795ed6">Digital Ocean</a></h6>
+
+  </body>
+</html>

@@ -1,0 +1,78 @@
+{% extends "main/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    <h2>Upcoming Shows</h2>
+
+    <ul>
+{% for event in events %}
+      <li>
+	  <a href="{{ event.facebook_rsvp_url }}" class="event_title">{{ event.venue.name }}</a><br />
+  	    {{ event.formatted_datetime }}<br />
+		{{ event.venue.place }}<br />
+		<a href="{{ event.venue.google_maps_url }}">{{ event.venue.city }}, {{ event.venue.region }}</a><br />
+		{{ event.description|default_if_none:""|urlize }}
+	  </li>
+{% endfor %}	  
+    </ul>
+
+    <h2>Mailing List</h2>
+
+    <p class="center">
+      <a href="http://eepurl.com/bGCvP1">Sign up for our mailing list</a>
+    </p>
+
+    <h2>About</h2>
+
+    <p>
+      After years of searching for like-minded musicians, the founding members of The Rhythm Ratz came together to create their unique sound influenced by a wide variety of artists including Elvis Presley, Eddie Cochran, Johnny Cash, Social Distortion, and Mad Sin. Bringing their punked-up rockabilly and psychobilly sound to Colorado Springs, CO, The Rhythm Ratz are determined to drag this killer sound, popular in many other areas of the world, to Colorado. They’re heading into the studio in 2016 and play up and down the I-25 Colorado corridor. The driving guitar of Bryan Barcelon mixed with the slapping of Andy Barilla’s upright bass lay nicely over Mike Argo’s backbeat. Throw The Stray Cats and The Ramones into a blender, top with some pomade and leather jackets and you’ll get the perfect recipe for an energy fueled show.
+    </p>
+    
+    <div class="band_pic"><?= get_image_tag($CDN_HOST . '/rr-band.jpg', '1250', '400', 'Bryan, Andy & Mike') ?></div>
+    
+    <p>
+      If you’re an out of town band in the rockabilly, psychobilly, gutterbilly or other weird genres, <a href="mailto:band@therhythmratz.com">drop us a line</a> if you want help getting booked in Colorado Springs or Denver.
+    </p>
+
+    <h2>The Colorado Scene</h2>
+        
+    <p>
+      Here’s some of the other rockabilly, psychobilly and horror punk bands in Colorado.
+    </p>
+    
+    <ul>
+      <li><a href="http://crimesceneband.com/">Kerry Pastine And The Crime Scene</a></li>
+      <li><a href="http://www.royaldead.com/">Royal Dead</a></li>
+      <li><a href="https://www.facebook.com/TerribleTomandTheDingbatz/">Terrible Tom &amp; The Dingbatz</a></li>
+      <li><a href="https://www.facebook.com/thewindupboys/">The Wind-Up Boys</a></li>
+    </ul>
+
+    <h2>Find Us</h2>
+
+    <ul>
+      <li><a href="http://facebook.com/therhythmratz">Facebook</a></li>
+      <li><a href="http://twitter.com/therhythmratz">Twitter</a></li>
+      <li><a href="http://instagram.com/therhythmratz">Instagram</a></li>
+      <li><a href="https://www.youtube.com/channel/UCs7C6wtvkHJmjjR7wgfv2iA">YouTube</a></li>
+      <li><a href="https://www.reverbnation.com/therhythmratz">Reverbnation</a></li>
+    </ul>
+
+    <h2>Booking</h2>
+
+    <p>
+	For booking information, email <a href="mailto:band@therhythmratz.com">band@therhythmratz.com</a> and you can also download images if you need <a href="{% url 'art' %}">artwork for flyers and promotional materials</a>.
+    </p>
+
+    <h2>Stuff We Like</h2>
+
+    <p>
+      Here's products from smaller companies that we like. We don't get any promotional consideration for this.
+    </p>
+
+    <div class="endorse">
+			<a href="http://www.deucebridges.com/"><img src="{% static "main/deucebridges.jpg" %}" width="156" height="122" alt="Deuce Bridges" /></a>
+			<a href="http://www.deucebridges.com/"><img src="{% static "main/vicspickups.jpg" %}" width="156" height="122" alt="Vic's Pickups" /></a>
+			<a href="http://www.layrite.com/"><img src="{% static "main/layrite.jpg" %}" width="156" height="156" alt="Layrite Pomade" /></a>
+			<a href="http://www.gracedesign.com/products/felix/felix.htm"><img src="{% static "main/gracefelix.jpg" %}" width="156" height="156" alt="Felix from Grace Design" /></a>			
+    </div>
+{% endblock %}

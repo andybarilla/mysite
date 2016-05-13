@@ -1,8 +1,8 @@
 FROM python:3.4
 ENV PYTHONUNBUFFERED 1
 
-ADD requirements.txt /srv/app/requirements.txt
-WORKDIR /srv
+ADD requirements.txt /srv/andybarilla.com/app/requirements.txt
+WORKDIR /srv/andybarilla.com
 RUN pip install -r app/requirements.txt
 EXPOSE 8000
 

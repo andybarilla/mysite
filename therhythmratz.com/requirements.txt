@@ -1,0 +1,6 @@
+Django==1.9.5
+gunicorn==19.4.5
+-e git://github.com/andybarilla/python-bandsintown.git@c81ff94facf725126b40e58a436b17515e79d403#egg=python_bandsintown
+python-dateutil==2.5.3
+requests==2.9.1
+six==1.10.0
