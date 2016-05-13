@@ -1,8 +1,10 @@
 version: '2'
 services:
   nginx:
-#    restart: always
+    restart: always
     image: nginx:latest
+    ports:
+      - "80:80"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
     volumes_from:
@@ -12,14 +14,14 @@ services:
       - web_andybarilla
       - web_therhythmratz
   web_andybarilla:
-#    restart: always
+    restart: always
     build: ./andybarilla.com
     volumes:
       - /srv/andybarilla.com/static
       - ./andybarilla.com:/srv/andybarilla.com/app
     working_dir: /srv/andybarilla.com/app
   web_therhythmratz:
-#    restart: always
+    restart: always
     build: ./therhythmratz.com
     volumes:
       - /srv/therhythmratz.com/static
