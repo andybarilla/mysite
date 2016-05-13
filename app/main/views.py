@@ -1,4 +1,4 @@
-from bandsintown import BandsInTown
+from bandsintown import Bandsintown
 import dateutil.parser
 from django.http import HttpResponse
 from django.template import loader
@@ -7,7 +7,7 @@ from django.template import loader
 def index(request):
     template = loader.get_template('main/index.html')
 
-    client = BandsInTown('andybarilla.com')
+    client = Bandsintown('andybarilla.com')
     events = client.events('The Rhythm Ratz')
     events.extend(client.events('Tinker\'s Damn'))
 
